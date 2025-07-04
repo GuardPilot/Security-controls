@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GuardPilot | Autonomous Security Drone</title>
+  <meta name="description" content="GuardPilot is an autonomous security drone for smart and reliable surveillance.">
+  <meta name="keywords" content="GuardPilot, Security Drone, Surveillance, Autonomous Drone, Smart Security">
+  <meta name="author" content="GuardPilot Team">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  <style>
+    html {
+      scroll-behavior: smooth;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      max-width: 1400px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+    }
+    header .logo img {
+      height: 60px;
+      margin-right: 15px;
+      border-radius: 8px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff7a00;
+    }
+    #hero {
+      margin-top: 80px;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 207, 193, 0.3);
+    }
+    #hero video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    #hero .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 15px;
+    }
+    #hero .content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    #hero .content a {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #ff7a00;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    #hero .content a:hover {
+      background-color: #e96b00;
+      transform: scale(1.05);
+    }
+    section {
+      margin: 100px 0;
+      padding: 30px;
+      background: rgba(34, 34, 34, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 207, 193, 0.3);
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2, h3 {
+      color: #00cfc1;
+      margin-bottom: 20px;
+    }
+    .why-us {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .why-us .feature {
+      flex: 1 1 250px;
+      margin: 10px;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 207, 193, 0.5);
+      transition: transform 0.3s;
+    }
+    .why-us .feature:hover {
+      transform: translateY(-10px);
+    }
+    .why-us .feature img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+    }
+    .contact-form button {
+      background-color: #00cfc1;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .contact-form button:hover {
+      background-color: #00a99d;
+      transform: scale(1.05);
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #00cfc1;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+    .socials a:hover {
+      color: #00a99d;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    @media (max-width: 768px) {
+      .why-us {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="images/logo.png" alt="GuardPilot Logo">
+    <h1>GuardPilot</h1>
+  </div>
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section id="hero" class="animate-section">
+  <video autoplay muted loop>
+    <source src="video/placeholder.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="content">
+    <h2>Your Autonomous Security Partner</h2>
+    <p>AI-powered drones that patrol, alert, and protect — all controlled via your smartphone.</p>
+    <a href="#contact">Get a Demo</a>
+  </div>
+</section>
+
+<section id="why-us" class="animate-section why-us">
+  <div class="feature">
+    <img src="images/GuardPilot_Icons.png" alt="Autonomous Icon">
+    <h3>Autonomous</h3>
+    <p>Fully AI-powered autonomous patrol and response.</p>
+  </div>
+  <div class="feature">
+    <img src="images/GuardPilot_Icons.png" alt="Mobile Control Icon">
+    <h3>Mobile Control</h3>
+    <p>Instant manual override and real-time control via app.</p>
+  </div>
+  <div class="feature">
+    <img src="images/GuardPilot_Icons.png" alt="Easy Integration Icon">
+    <h3>Easy Integration</h3>
+    <p>Seamlessly integrates with your existing security systems.</p>
+  </div>
+  <div class="feature">
+    <img src="images/GuardPilot_Icons.png" alt="Instant Alerts Icon">
+    <h3>Instant Alerts</h3>
+    <p>Real-time threat detection and immediate notifications.</p>
+  </div>
+</section>
+
+<section id="how-it-works" class="animate-section">
+  <h2>How It Works</h2>
+  <ul>
+    <li>Step 1: Launch drone patrol via mobile app.</li>
+    <li>Step 2: Real-time monitoring and AI-based threat detection.</li>
+    <li>Step 3: Instant alerts and optional manual intervention.</li>
+    <li>Step 4: Automatic reporting and patrol logs.</li>
+  </ul>
+</section>
+
+<section id="contact" class="animate-section">
+  <h2>Contact Us</h2>
+  <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" target="_blank">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea><br>
+    <label><input type="checkbox" required> I agree to the data processing policy.</label><br><br>
+    <button type="submit">Send Message</button>
+  </form>
+  <p>Telegram: <a href="https://t.me/JV_Guard" target="_blank">@JV_Guard</a></p>
+  <p>Email: <a href="mailto:pandamladshay@gmail.com">pandamladshay@gmail.com</a></p>
+</section>
+
+<footer>
+  <div class="socials">
+    <a href="https://t.me/JV_Guard" target="_blank">Telegram</a>
+  </div>
+  <p>© 2025 GuardPilot. All rights reserved.</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
+</body>
+</html>
