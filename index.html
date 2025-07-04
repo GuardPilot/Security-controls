@@ -1,13 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GuardPilot | Autonomous Security Drone</title>
-  <meta name="description" content="GuardPilot is an autonomous security drone for smart and reliable surveillance.">
-  <meta name="keywords" content="GuardPilot, Security Drone, Surveillance, Autonomous Drone, Smart Security">
-  <meta name="author" content="GuardPilot Team">
   <link rel="icon" href="images/logo.png" type="image/png">
 
   <style>
@@ -24,52 +20,48 @@
       margin: 0 auto;
       padding: 0 20px;
     }
+
     header {
       position: fixed;
       top: 0;
       width: 100%;
       max-width: 1400px;
-      background: rgba(0, 0, 0, 0.8);
+      background: transparent; /* убрали черную чёлку */
       padding: 15px 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start; /* прижали влево */
       align-items: center;
       z-index: 1000;
     }
-    header .logo {
-      display: flex;
-      align-items: center;
-    }
+
     header .logo img {
       height: 60px;
       margin-right: 15px;
       border-radius: 8px;
     }
+
     nav a {
       color: white;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
       position: relative;
-      display: inline-block;
     }
+
     nav a::after {
       content: '';
-      position: absolute;
-      width: 0%;
+      display: block;
+      width: 0;
       height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: #ff7a00;
+      background: #ff7a00;
       transition: width 0.3s;
+      margin: 0 auto;
     }
+
     nav a:hover::after {
       width: 100%;
     }
-    nav a:hover {
-      color: #ff7a00;
-    }
+
     #hero {
       margin-top: 80px;
       padding: 0;
@@ -78,43 +70,38 @@
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0, 207, 193, 0.3);
     }
+
     #hero video {
       width: 100%;
       height: auto;
       display: block;
     }
+
     #hero .content {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      bottom: 30px;
+      right: 30px;
       text-align: center;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 30px;
-      border-radius: 15px;
     }
-    #hero .content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-    }
+
     #hero .content a {
       display: inline-block;
-      padding: 15px 30px;
-      background-color: #ff7a00;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s, transform 0.3s;
+      width: 80px;
+      height: 80px;
+      background: url('images/drone_button.png') no-repeat center center;
+      background-size: contain;
+      border: none;
+      text-indent: -9999px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
     }
-    #hero .content a:hover {
-      animation: pulse 1s infinite;
-    }
+
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.1); }
       100% { transform: scale(1); }
     }
+
     section {
       margin: 100px 0;
       padding: 30px;
@@ -125,19 +112,23 @@
       transform: translateY(50px);
       transition: opacity 1s ease, transform 1s ease;
     }
+
     section.visible {
       opacity: 1;
       transform: translateY(0);
     }
+
     h2, h3 {
       color: #00cfc1;
       margin-bottom: 20px;
     }
+
     .why-us {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
     }
+
     .why-us .feature {
       flex: 1 1 250px;
       margin: 10px;
@@ -148,25 +139,26 @@
       box-shadow: 0 0 15px rgba(0, 207, 193, 0.5);
       transition: transform 0.3s, box-shadow 0.3s;
     }
+
     .why-us .feature:hover {
-      transform: translateY(-15px);
-      box-shadow: 0 0 30px rgba(0, 207, 193, 0.9);
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 207, 193, 0.8);
     }
+
     .why-us .feature img {
       width: 80px;
       height: 80px;
       margin-bottom: 15px;
       border-radius: 10px;
-      transition: transform 0.3s;
+      animation: float 4s ease-in-out infinite;
     }
-    .why-us .feature img:hover {
-      animation: floatRotate 2s infinite ease-in-out;
-    }
-    @keyframes floatRotate {
+
+    @keyframes float {
       0% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(10deg); }
+      50% { transform: translateY(-10px) rotate(5deg); }
       100% { transform: translateY(0) rotate(0deg); }
     }
+
     .contact-form input, .contact-form textarea {
       width: 100%;
       margin-bottom: 15px;
@@ -174,6 +166,7 @@
       border: none;
       border-radius: 8px;
     }
+
     .contact-form button {
       background-color: #00cfc1;
       color: white;
@@ -183,25 +176,30 @@
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
     }
+
     .contact-form button:hover {
       background-color: #00a99d;
       transform: scale(1.05);
     }
+
     .socials a {
       margin: 0 10px;
       color: #00cfc1;
       text-decoration: none;
       font-size: 1.5rem;
     }
+
     .socials a:hover {
       color: #00a99d;
     }
+
     footer {
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
       color: #888;
     }
+
     @media (max-width: 768px) {
       .why-us {
         flex-direction: column;
@@ -214,6 +212,7 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -222,22 +221,20 @@
     <h1>GuardPilot</h1>
   </div>
   <nav>
-    <a href="#hero">Home</a>
-    <a href="#why-us">Why Us</a>
-    <a href="#how-it-works">How It Works</a>
-    <a href="#contact">Contact</a>
+    <a href="#hero">Дом</a>
+    <a href="#why-us">Почему мы</a>
+    <a href="#how-it-works">Как это работает</a>
+    <a href="#contact">Контакт</a>
   </nav>
 </header>
 
 <section id="hero" class="animate-section">
   <video autoplay muted loop>
-    <source src="video/20250702_2031_GuardPilot Shield Integration_simple_compose_01jz63316ye6jtyxtjwvfc35e9.mp4" type="video/mp4">
+    <source src="video/guardpilot.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <div class="content">
-    <h2>Your Autonomous Security Partner</h2>
-    <p>AI-powered drones that patrol, alert, and protect — all controlled via your smartphone.</p>
-    <a href="#contact">Get a Demo</a>
+    <a href="#contact">Demo</a>
   </div>
 </section>
 
@@ -265,23 +262,23 @@
 </section>
 
 <section id="how-it-works" class="animate-section">
-  <h2>How It Works</h2>
+  <h2>Как это работает</h2>
   <ul>
-    <li>Step 1: Launch drone patrol via mobile app.</li>
-    <li>Step 2: Real-time monitoring and AI-based threat detection.</li>
-    <li>Step 3: Instant alerts and optional manual intervention.</li>
-    <li>Step 4: Automatic reporting and patrol logs.</li>
+    <li>Шаг 1: Запустите патрулирование дрона через приложение.</li>
+    <li>Шаг 2: Мониторинг в реальном времени и обнаружение угроз на базе ИИ.</li>
+    <li>Шаг 3: Мгновенные уведомления и опциональное ручное вмешательство.</li>
+    <li>Шаг 4: Автоматические отчеты и логи патрулирования.</li>
   </ul>
 </section>
 
 <section id="contact" class="animate-section">
-  <h2>Contact Us</h2>
+  <h2>Связаться с нами</h2>
   <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" target="_blank">
-    <input type="text" name="name" placeholder="Your Name" required><br>
-    <input type="email" name="email" placeholder="Your Email" required><br>
-    <textarea name="message" rows="4" placeholder="Your Message" required></textarea><br>
-    <label><input type="checkbox" required> I agree to the data processing policy.</label><br><br>
-    <button type="submit">Send Message</button>
+    <input type="text" name="name" placeholder="Ваше имя" required><br>
+    <input type="email" name="email" placeholder="Ваш email" required><br>
+    <textarea name="message" rows="4" placeholder="Ваше сообщение" required></textarea><br>
+    <label><input type="checkbox" required> Я согласен с политикой обработки данных.</label><br><br>
+    <button type="submit">Отправить сообщение</button>
   </form>
   <p>Telegram: <a href="https://t.me/JV_Guard" target="_blank">@JV_Guard</a></p>
   <p>Email: <a href="mailto:pandamladshay@gmail.com">pandamladshay@gmail.com</a></p>
@@ -291,7 +288,7 @@
   <div class="socials">
     <a href="https://t.me/JV_Guard" target="_blank">Telegram</a>
   </div>
-  <p>© 2025 GuardPilot. All rights reserved.</p>
+  <p>© 2025 GuardPilot. Все права защищены.</p>
 </footer>
 
 <script>
