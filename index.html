@@ -1,14 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GuardPilot | Autonomous Security Drone</title>
-  <meta name="description" content="GuardPilot is an autonomous security drone for smart and reliable surveillance.">
-  <meta name="keywords" content="GuardPilot, Security Drone, Surveillance, Autonomous Drone, Smart Security">
-  <meta name="author" content="GuardPilot Team">
-  <link rel="icon" href="images/logo.png" type="image/png">
-  
+  <link rel="icon" href="logo.png" type="image/png">
   <style>
     html {
       scroll-behavior: smooth;
@@ -77,9 +74,22 @@
       padding: 30px;
       border-radius: 15px;
     }
+    #hero .content h2, #hero .content p {
+      opacity: 0;
+      transform: translateY(-20px);
+      animation: fadeInUp 1s forwards;
+    }
     #hero .content h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
+      animation-delay: 0.3s;
+    }
+    #hero .content p {
+      animation-delay: 0.6s;
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
     #hero .content a {
       display: inline-block;
@@ -92,7 +102,7 @@
       transition: background-color 0.3s, transform 0.3s;
     }
     #hero .content a:hover {
-      background-color: #e96b00;
+      background-color: #ffaa33;
       transform: scale(1.05);
     }
     section {
@@ -135,7 +145,11 @@
       width: 80px;
       height: 80px;
       margin-bottom: 15px;
-      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .why-us .feature:hover img {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px #00cfc1;
     }
     .contact-form input, .contact-form textarea {
       width: 100%;
@@ -183,13 +197,83 @@
       }
     }
   </style>
-</head>
 
+<style>
+  @keyframes fadeInUpStrong {
+    0% {
+      opacity: 0;
+      transform: translateY(100px) scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  section.visible-strong {
+    animation: fadeInUpStrong 1s ease forwards;
+  }
+</style>
+
+
+<style>
+  /* Пульсация кнопки */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+  }
+
+  #hero .content a:hover {
+    animation: pulse 1s infinite;
+    background-color: #e96b00;
+  }
+
+  /* Плавание и вращение иконок */
+  @keyframes floatRotate {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+
+  .why-us .feature img:hover {
+    animation: floatRotate 2s infinite ease-in-out;
+  }
+
+  /* Яркое свечение карточек */
+  .why-us .feature:hover {
+    box-shadow: 0 0 30px rgba(0, 207, 193, 0.9);
+    transform: translateY(-15px);
+  }
+
+  /* Анимация underline для меню */
+  nav a {
+    position: relative;
+    display: inline-block;
+  }
+
+  nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #ff7a00;
+    transition: width 0.3s;
+  }
+
+  nav a:hover::after {
+    width: 100%;
+  }
+</style>
+
+</head>
 <body>
 
 <header>
   <div class="logo">
-    <img src="images/logo.png" alt="GuardPilot Logo">
+    <img src="logo.png" alt="GuardPilot Logo">
     <h1>GuardPilot</h1>
   </div>
   <nav>
@@ -202,7 +286,7 @@
 
 <section id="hero" class="animate-section">
   <video autoplay muted loop>
-    <source src="video/placeholder.mp4" type="video/mp4">
+    <source src="cmckqudb7001u356p5noqbjtu.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <div class="content">
@@ -214,22 +298,22 @@
 
 <section id="why-us" class="animate-section why-us">
   <div class="feature">
-    <img src="images/Autonomous.png" alt="Autonomous Icon">
+    <img src="Autonomous.png" alt="Autonomous Icon">
     <h3>Autonomous</h3>
     <p>Fully AI-powered autonomous patrol and response.</p>
   </div>
   <div class="feature">
-    <img src="images/Mobile_Control.png" alt="Mobile Control Icon">
+    <img src="Mobile_Control.png" alt="Mobile Control Icon">
     <h3>Mobile Control</h3>
     <p>Instant manual override and real-time control via app.</p>
   </div>
   <div class="feature">
-    <img src="images/Easy_Integration.png" alt="Easy Integration Icon">
+    <img src="Easy_Integration.png" alt="Easy Integration Icon">
     <h3>Easy Integration</h3>
     <p>Seamlessly integrates with your existing security systems.</p>
   </div>
   <div class="feature">
-    <img src="images/Instant_Alerts.png" alt="Instant Alerts Icon">
+    <img src="Instant_Alerts.png" alt="Instant Alerts Icon">
     <h3>Instant Alerts</h3>
     <p>Real-time threat detection and immediate notifications.</p>
   </div>
@@ -260,7 +344,9 @@
 
 <footer>
   <div class="socials">
-    <a href="https://t.me/JV_Guard" target="_blank">Telegram</a>
+    <a href="https://t.me/JV_Guard" target="_blank">🐦</a>
+    <a href="#" target="_blank">📘</a>
+    <a href="#" target="_blank">📸</a>
   </div>
   <p>© 2025 GuardPilot. All rights reserved.</p>
 </footer>
@@ -277,6 +363,21 @@
   document.querySelectorAll('.animate-section').forEach(section => {
     observer.observe(section);
   });
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible-strong');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-section').forEach(section => {
+    observer.observe(section);
+  });
+</script>
+
 </script>
 
 </body>
