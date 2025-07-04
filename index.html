@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GuardPilot | Autonomous Security Drone</title>
-  <meta name="description" content="GuardPilot is an autonomous security drone for smart and reliable surveillance.">
-  <meta name="keywords" content="GuardPilot, Security Drone, Surveillance, Autonomous Drone, Smart Security">
-  <meta name="author" content="GuardPilot Team">
   <link rel="icon" href="images/logo.png" type="image/png">
-  
   <style>
     html {
       scroll-behavior: smooth;
@@ -22,6 +18,7 @@
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 20px;
+      position: relative;
     }
     header {
       position: fixed;
@@ -49,7 +46,7 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
+      position: relative;
     }
     nav a:hover {
       color: #ff7a00;
@@ -157,14 +154,23 @@
       background-color: #00a99d;
       transform: scale(1.05);
     }
-    .socials a {
-      margin: 0 10px;
-      color: #00cfc1;
-      text-decoration: none;
-      font-size: 1.5rem;
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00cfc1;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 0 10px rgba(0, 207, 193, 0.5);
     }
-    .socials a:hover {
-      color: #00a99d;
+    .scroll-top.show {
+      display: block;
     }
     footer {
       text-align: center;
@@ -202,7 +208,7 @@
 
 <section id="hero" class="animate-section">
   <video autoplay muted loop>
-    <source src="video/guardpilot.mp4" type="video/mp4">
+    <source src="video/intro.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <div class="content">
@@ -258,6 +264,8 @@
   <p>Email: <a href="mailto:pandamladshay@gmail.com">pandamladshay@gmail.com</a></p>
 </section>
 
+<button class="scroll-top" onclick="scrollToTop()">↑</button>
+
 <footer>
   <div class="socials">
     <a href="https://t.me/JV_Guard" target="_blank">Telegram</a>
@@ -277,6 +285,19 @@
   document.querySelectorAll('.animate-section').forEach(section => {
     observer.observe(section);
   });
+
+  window.addEventListener('scroll', () => {
+    const scrollButton = document.querySelector('.scroll-top');
+    if (window.scrollY > 300) {
+      scrollButton.classList.add('show');
+    } else {
+      scrollButton.classList.remove('show');
+    }
+  });
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 </script>
 
 </body>
