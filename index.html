@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GuardPilot | Autonomous Security Drone</title>
-  <link rel="icon" href="logo.png" type="image/png">
+  <meta name="description" content="GuardPilot is an autonomous security drone for smart and reliable surveillance.">
+  <meta name="keywords" content="GuardPilot, Security Drone, Surveillance, Autonomous Drone, Smart Security">
+  <meta name="author" content="GuardPilot Team">
+  <link rel="icon" href="images/logo.png" type="image/png">
+  
   <style>
     html {
       scroll-behavior: smooth;
@@ -73,22 +77,9 @@
       padding: 30px;
       border-radius: 15px;
     }
-    #hero .content h2, #hero .content p {
-      opacity: 0;
-      transform: translateY(-20px);
-      animation: fadeInUp 1s forwards;
-    }
     #hero .content h2 {
-      animation-delay: 0.3s;
-    }
-    #hero .content p {
-      animation-delay: 0.6s;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
     #hero .content a {
       display: inline-block;
@@ -101,7 +92,7 @@
       transition: background-color 0.3s, transform 0.3s;
     }
     #hero .content a:hover {
-      background-color: #ffaa33;
+      background-color: #e96b00;
       transform: scale(1.05);
     }
     section {
@@ -144,11 +135,7 @@
       width: 80px;
       height: 80px;
       margin-bottom: 15px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .why-us .feature:hover img {
-      transform: scale(1.1);
-      box-shadow: 0 0 15px #00cfc1;
+      border-radius: 10px;
     }
     .contact-form input, .contact-form textarea {
       width: 100%;
@@ -197,11 +184,12 @@
     }
   </style>
 </head>
+
 <body>
 
 <header>
   <div class="logo">
-    <img src="logo.png" alt="GuardPilot Logo">
+    <img src="images/logo.png" alt="GuardPilot Logo">
     <h1>GuardPilot</h1>
   </div>
   <nav>
@@ -214,7 +202,7 @@
 
 <section id="hero" class="animate-section">
   <video autoplay muted loop>
-    <source src="cmckqudb7001u356p5noqbjtu.mp4" type="video/mp4">
+    <source src="video/placeholder.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
   <div class="content">
@@ -226,22 +214,22 @@
 
 <section id="why-us" class="animate-section why-us">
   <div class="feature">
-    <img src="Autonomous.png" alt="Autonomous Icon">
+    <img src="images/Autonomous.png" alt="Autonomous Icon">
     <h3>Autonomous</h3>
     <p>Fully AI-powered autonomous patrol and response.</p>
   </div>
   <div class="feature">
-    <img src="Mobile_Control.png" alt="Mobile Control Icon">
+    <img src="images/Mobile_Control.png" alt="Mobile Control Icon">
     <h3>Mobile Control</h3>
     <p>Instant manual override and real-time control via app.</p>
   </div>
   <div class="feature">
-    <img src="Easy_Integration.png" alt="Easy Integration Icon">
+    <img src="images/Easy_Integration.png" alt="Easy Integration Icon">
     <h3>Easy Integration</h3>
     <p>Seamlessly integrates with your existing security systems.</p>
   </div>
   <div class="feature">
-    <img src="Instant_Alerts.png" alt="Instant Alerts Icon">
+    <img src="images/Instant_Alerts.png" alt="Instant Alerts Icon">
     <h3>Instant Alerts</h3>
     <p>Real-time threat detection and immediate notifications.</p>
   </div>
@@ -272,9 +260,7 @@
 
 <footer>
   <div class="socials">
-    <a href="https://t.me/JV_Guard" target="_blank">🐦</a>
-    <a href="#" target="_blank">📘</a>
-    <a href="#" target="_blank">📸</a>
+    <a href="https://t.me/JV_Guard" target="_blank">Telegram</a>
   </div>
   <p>© 2025 GuardPilot. All rights reserved.</p>
 </footer>
