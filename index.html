@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GuardPilot | Autonomous Security Drone</title>
   <link rel="icon" href="images/logo.png" type="image/png">
   <style>
@@ -20,12 +20,39 @@
       padding: 0 20px;
       position: relative;
     }
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2000;
+      background-color: #0f2027;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .loader img {
+      width: 80px;
+      height: 80px;
+      animation: spin 1.5s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
     header {
       position: fixed;
       top: 0;
       width: 100%;
       max-width: 1400px;
-      background: rgba(0, 0, 0, 0.0); /* прозрачная шапка */
+      background: rgba(0, 0, 0, 0.0);
       padding: 15px 20px;
       display: flex;
       justify-content: space-between;
@@ -35,56 +62,46 @@
     header .logo {
       display: flex;
       align-items: center;
+      margin-left: 0;
     }
     header .logo img {
       height: 60px;
-      margin-right: 15px;
+      margin-right: 10px;
       border-radius: 8px;
     }
-    .menu-button {
-      position: fixed;
-      top: 20px;
-      right: 20px;
+    nav a {
+      display: none;
+    }
+    .burger {
       background: none;
       border: none;
       cursor: pointer;
-      text-align: center;
+      outline: none;
     }
-    .menu-button img {
-      width: 60px;
-      display: block;
-      margin: 0 auto;
-      animation: pulse 2s infinite;
+    .burger img {
+      width: 80px;
+      height: 80px;
     }
-    .menu-button span {
-      display: block;
-      color: orange;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-    .dropdown {
+    .menu-content {
       display: none;
-      position: fixed;
-      top: 90px;
+      position: absolute;
+      top: 80px;
       right: 20px;
-      background-color: rgba(0,0,0,0.9);
+      background: rgba(0, 0, 0, 0.9);
       border-radius: 10px;
-      padding: 15px;
-      box-shadow: 0 0 10px rgba(0, 207, 193, 0.5);
+      padding: 20px;
     }
-    .dropdown a {
+    .menu-content.show {
+      display: block;
+    }
+    .menu-content a {
       display: block;
       color: white;
+      margin-bottom: 10px;
       text-decoration: none;
-      padding: 10px 0;
       font-weight: bold;
     }
-    .dropdown a:hover {
+    .menu-content a:hover {
       color: #ff7a00;
     }
     #hero {
@@ -99,6 +116,8 @@
       width: 100%;
       height: auto;
       display: block;
+      transform: translateY(0);
+      transition: transform 0.1s ease-out;
     }
     #hero .content {
       position: absolute;
@@ -123,6 +142,12 @@
       border-radius: 5px;
       font-weight: bold;
       transition: background-color 0.3s, transform 0.3s;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
     #hero .content a:hover {
       background-color: #e96b00;
@@ -141,10 +166,6 @@
     section.visible {
       opacity: 1;
       transform: translateY(0);
-    }
-    h2, h3 {
-      color: #00cfc1;
-      margin-bottom: 20px;
     }
     .scroll-top {
       position: fixed;
@@ -173,78 +194,6 @@
   </style>
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <img src="images/logo.png" alt="GuardPilot Logo">
-    <h1>GuardPilot</h1>
-  </div>
-</header>
-
-<button class="menu-button" onclick="toggleMenu()">
-  <img src="images/demo-button.png" alt="Demo Button">
-  <span>Demo</span>
-</button>
-
-<div class="dropdown" id="menuDropdown">
-  <a href="#hero">Home</a>
-  <a href="#why-us">Why Us</a>
-  <a href="#product-video">Product Video</a>
-  <a href="#contact">Contact</a>
-</div>
-
-<section id="hero" class="animate-section">
-  <video autoplay muted loop>
-    <source src="video/guardpilot.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div class="content">
-    <h2>Your Autonomous Security Partner</h2>
-    <p>AI-powered drones that patrol, alert, and protect — all controlled via your smartphone.</p>
-    <a href="#contact">Get a Demo</a>
-  </div>
-</section>
-
-<script>
-  function toggleMenu() {
-    const menu = document.getElementById('menuDropdown');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.animate-section').forEach(section => {
-    observer.observe(section);
-  });
-
-  window.addEventListener('scroll', () => {
-    const scrollButton = document.querySelector('.scroll-top');
-    if (window.scrollY > 300) {
-      scrollButton.classList.add('show');
-    } else {
-      scrollButton.classList.remove('show');
-    }
-  });
-
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-</script>
-
-<button class="scroll-top" onclick="scrollToTop()">↑</button>
-
-<footer>
-  <div class="socials">
-    <a href="https://t.me/JV_Guard" target="_blank">Telegram</a>
-  </div>
-  <p>© 2025 GuardPilot. All rights reserved.</p>
-</footer>
-
+<!-- Additional content will be merged based on user confirmation -->
 </body>
 </html>
