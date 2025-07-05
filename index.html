@@ -20,8 +20,6 @@
       padding: 0 20px;
       position: relative;
     }
-
-    /* Preloader */
     #preloader {
       position: fixed;
       left: 0;
@@ -48,8 +46,6 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
-    /* Header */
     header {
       position: fixed;
       top: 0;
@@ -84,8 +80,6 @@
     nav a:hover {
       color: #ff7a00;
     }
-
-    /* Burger Icon */
     .burger {
       display: none;
       flex-direction: column;
@@ -98,8 +92,6 @@
       margin: 4px;
       transition: all 0.3s ease;
     }
-
-    /* Mobile Menu */
     @media (max-width: 768px) {
       nav {
         position: absolute;
@@ -118,8 +110,6 @@
         display: flex;
       }
     }
-
-    /* Hero Section */
     #hero {
       margin-top: 80px;
       padding: 0;
@@ -132,6 +122,8 @@
       width: 100%;
       height: auto;
       display: block;
+      transform: translateY(0);
+      transition: transform 0.1s ease-out;
     }
     #hero .content {
       position: absolute;
@@ -161,8 +153,6 @@
       background-color: #e96b00;
       transform: scale(1.05);
     }
-
-    /* Sections */
     section {
       margin: 100px 0;
       padding: 30px;
@@ -181,8 +171,6 @@
       color: #00cfc1;
       margin-bottom: 20px;
     }
-
-    /* Features */
     .why-us {
       display: flex;
       flex-wrap: wrap;
@@ -207,8 +195,11 @@
       margin-bottom: 15px;
       border-radius: 10px;
     }
-
-    /* Contact Form */
+    .product-video video {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
     .contact-form input, .contact-form textarea {
       width: 100%;
       margin-bottom: 15px;
@@ -229,8 +220,6 @@
       background-color: #00a99d;
       transform: scale(1.05);
     }
-
-    /* Footer */
     .socials a {
       margin: 0 10px;
       color: #00cfc1;
@@ -251,14 +240,12 @@
 
 <body>
 
-<!-- Preloader -->
 <div id="preloader">
   <div class="loader">
     <img src="images/logo.png" alt="Loading...">
   </div>
 </div>
 
-<!-- Header -->
 <header>
   <div class="logo">
     <img src="images/logo.png" alt="GuardPilot Logo">
@@ -272,14 +259,13 @@
   <nav id="nav-menu">
     <a href="#hero">Home</a>
     <a href="#why-us">Why Us</a>
-    <a href="#how-it-works">How It Works</a>
+    <a href="#product-video">Product Video</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
-<!-- Hero Section -->
 <section id="hero" class="animate-section">
-  <video autoplay muted loop>
+  <video id="hero-video" autoplay muted loop>
     <source src="video/intro.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -290,72 +276,20 @@
   </div>
 </section>
 
-<!-- Features Section -->
-<section id="why-us" class="animate-section why-us">
-  <div class="feature">
-    <img src="images/Autonomous.png" alt="Autonomous Icon">
-    <h3>Autonomous</h3>
-    <p>Fully AI-powered autonomous patrol and response.</p>
-  </div>
-  <div class="feature">
-    <img src="images/Mobile_Control.png" alt="Mobile Control Icon">
-    <h3>Mobile Control</h3>
-    <p>Instant manual override and real-time control via app.</p>
-  </div>
-  <div class="feature">
-    <img src="images/Easy_Integration.png" alt="Easy Integration Icon">
-    <h3>Easy Integration</h3>
-    <p>Seamlessly integrates with your existing security systems.</p>
-  </div>
-  <div class="feature">
-    <img src="images/Instant_Alerts.png" alt="Instant Alerts Icon">
-    <h3>Instant Alerts</h3>
-    <p>Real-time threat detection and immediate notifications.</p>
-  </div>
+<section id="product-video" class="animate-section product-video">
+  <h2>Product Overview</h2>
+  <video controls>
+    <source src="video/product-overview.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 </section>
 
-<!-- How it Works Section -->
-<section id="how-it-works" class="animate-section">
-  <h2>How It Works</h2>
-  <ul>
-    <li>Step 1: Launch drone patrol via mobile app.</li>
-    <li>Step 2: Real-time monitoring and AI-based threat detection.</li>
-    <li>Step 3: Instant alerts and optional manual intervention.</li>
-    <li>Step 4: Automatic reporting and patrol logs.</li>
-  </ul>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="animate-section">
-  <h2>Contact Us</h2>
-  <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST" target="_blank">
-    <input type="text" name="name" placeholder="Your Name" required><br>
-    <input type="email" name="email" placeholder="Your Email" required><br>
-    <textarea name="message" rows="4" placeholder="Your Message" required></textarea><br>
-    <label><input type="checkbox" required> I agree to the data processing policy.</label><br><br>
-    <button type="submit">Send Message</button>
-  </form>
-  <p>Telegram: <a href="https://t.me/JV_Guard" target="_blank">@JV_Guard</a></p>
-  <p>Email: <a href="mailto:pandamladshay@gmail.com">pandamladshay@gmail.com</a></p>
-</section>
-
-<!-- Footer -->
-<footer>
-  <div class="socials">
-    <a href="https://t.me/JV_Guard" target="_blank">Telegram</a>
-  </div>
-  <p>© 2025 GuardPilot. All rights reserved.</p>
-</footer>
-
-<!-- Scripts -->
 <script>
-  // Preloader
   window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     preloader.classList.add('hide');
   });
 
-  // Scroll Animation
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -368,11 +302,16 @@
     observer.observe(section);
   });
 
-  // Burger Menu
   function toggleMenu() {
     document.getElementById('nav-menu').classList.toggle('show');
   }
+
+  window.addEventListener('scroll', () => {
+    const video = document.getElementById('hero-video');
+    let offset = window.scrollY * 0.3;
+    video.style.transform = `translateY(${offset}px)`;
+  });
 </script>
 
 </body>
-</html>
+</html
