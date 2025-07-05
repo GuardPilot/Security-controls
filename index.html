@@ -54,7 +54,7 @@
       top: 0;
       width: 100%;
       max-width: 1400px;
-      background: rgba(0, 0, 0, 0.0);
+      background: rgba(0, 0, 0, 0);
       padding: 15px 20px;
       display: flex;
       justify-content: space-between;
@@ -64,12 +64,14 @@
     header .logo {
       display: flex;
       align-items: center;
+      margin-left: 0;
     }
     header .logo img {
       height: 60px;
       margin-right: 15px;
       border-radius: 8px;
     }
+
     .menu-button {
       position: fixed;
       top: 20px;
@@ -116,6 +118,7 @@
     .dropdown a:hover {
       color: #ff7a00;
     }
+
     #hero {
       margin-top: 80px;
       padding: 0;
@@ -160,6 +163,7 @@
       background-color: #e96b00;
       transform: scale(1.05);
     }
+
     section {
       margin: 100px 0;
       padding: 30px;
@@ -258,11 +262,6 @@
     preloader.classList.add('hide');
   });
 
-  function toggleMenu() {
-    const menu = document.getElementById('menuDropdown');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
-
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -287,6 +286,11 @@
       scrollButton.classList.remove('show');
     }
   });
+
+  function toggleMenu() {
+    const menu = document.getElementById('menuDropdown');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  }
 
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
