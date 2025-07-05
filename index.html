@@ -20,6 +20,7 @@
       padding: 0 20px;
       position: relative;
     }
+
     /* Preloader */
     #preloader {
       position: fixed;
@@ -70,6 +71,10 @@
       margin-right: 15px;
       border-radius: 8px;
     }
+    nav {
+      display: flex;
+      align-items: center;
+    }
     nav a {
       color: white;
       margin: 0 15px;
@@ -78,6 +83,40 @@
     }
     nav a:hover {
       color: #ff7a00;
+    }
+
+    /* Burger Icon */
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .burger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Menu */
+    @media (max-width: 768px) {
+      nav {
+        position: absolute;
+        top: 70px;
+        right: -200px;
+        background-color: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 10px;
+        transition: right 0.3s ease;
+      }
+      nav.show {
+        right: 20px;
+      }
+      .burger {
+        display: flex;
+      }
     }
 
     /* Hero Section */
@@ -207,18 +246,6 @@
       font-size: 0.9rem;
       color: #888;
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .why-us {
-        flex-direction: column;
-        align-items: center;
-      }
-      nav {
-        display: flex;
-        flex-direction: column;
-      }
-    }
   </style>
 </head>
 
@@ -237,7 +264,12 @@
     <img src="images/logo.png" alt="GuardPilot Logo">
     <h1>GuardPilot</h1>
   </div>
-  <nav>
+  <div class="burger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <nav id="nav-menu">
     <a href="#hero">Home</a>
     <a href="#why-us">Why Us</a>
     <a href="#how-it-works">How It Works</a>
@@ -335,6 +367,11 @@
   document.querySelectorAll('.animate-section').forEach(section => {
     observer.observe(section);
   });
+
+  // Burger Menu
+  function toggleMenu() {
+    document.getElementById('nav-menu').classList.toggle('show');
+  }
 </script>
 
 </body>
