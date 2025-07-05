@@ -20,7 +20,6 @@
       padding: 0 20px;
       position: relative;
     }
-
     /* Preloader */
     #preloader {
       position: fixed;
@@ -48,13 +47,11 @@
       0% { transform: rotate(0deg); }
       100% { transform: rotate(360deg); }
     }
-
     header {
       position: fixed;
       top: 0;
       width: 100%;
-      max-width: 1400px;
-      background: rgba(0, 0, 0, 0);
+      background: rgba(0, 0, 0, 0.0);
       padding: 15px 20px;
       display: flex;
       justify-content: space-between;
@@ -64,14 +61,12 @@
     header .logo {
       display: flex;
       align-items: center;
-      margin-left: 0;
     }
     header .logo img {
       height: 60px;
       margin-right: 15px;
       border-radius: 8px;
     }
-
     .menu-button {
       position: fixed;
       top: 20px;
@@ -118,7 +113,6 @@
     .dropdown a:hover {
       color: #ff7a00;
     }
-
     #hero {
       margin-top: 80px;
       padding: 0;
@@ -163,7 +157,6 @@
       background-color: #e96b00;
       transform: scale(1.05);
     }
-
     section {
       margin: 100px 0;
       padding: 30px;
@@ -182,6 +175,62 @@
       color: #00cfc1;
       margin-bottom: 20px;
     }
+    .why-us {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .why-us .feature {
+      flex: 1 1 250px;
+      margin: 10px;
+      padding: 20px;
+      background-color: #222;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0, 207, 193, 0.5);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .why-us .feature:hover {
+      transform: translateY(-10px) rotate(2deg);
+      box-shadow: 0 0 25px rgba(0, 207, 193, 0.7);
+    }
+    .why-us .feature img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      border-radius: 10px;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+      100% { transform: translateY(0); }
+    }
+    .product-video video {
+      width: 100%;
+      border-radius: 15px;
+      margin-top: 20px;
+    }
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+    }
+    .contact-form button {
+      background-color: #00cfc1;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+    .contact-form button:hover {
+      background-color: #00a99d;
+      transform: scale(1.05);
+    }
     .scroll-top {
       position: fixed;
       bottom: 20px;
@@ -197,105 +246,55 @@
       display: none;
       box-shadow: 0 0 10px rgba(0, 207, 193, 0.5);
     }
-    .scroll-top.show {
-      display: block;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #888;
-    }
+    .scroll-top.show { display: block; }
+    footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #888; }
   </style>
 </head>
 <body>
-
-<div id="preloader">
-  <div class="loader">
-    <img src="images/logo.png" alt="Loading...">
-  </div>
-</div>
-
+<div id="preloader"><div class="loader"><img src="images/logo.png" alt="Loading..."></div></div>
 <header>
-  <div class="logo">
-    <img src="images/logo.png" alt="GuardPilot Logo">
-    <h1>GuardPilot</h1>
-  </div>
+  <div class="logo"><img src="images/logo.png" alt="GuardPilot Logo"><h1>GuardPilot</h1></div>
 </header>
-
-<button class="menu-button" onclick="toggleMenu()">
-  <img src="images/demo-button.png" alt="Demo Button">
-  <span>Demo</span>
-</button>
-
+<button class="menu-button" onclick="toggleMenu()"><img src="images/demo-button.png" alt="Demo Button"><span>Demo</span></button>
 <div class="dropdown" id="menuDropdown">
   <a href="#hero">Home</a>
   <a href="#why-us">Why Us</a>
   <a href="#product-video">Product Video</a>
   <a href="#contact">Contact</a>
 </div>
-
 <section id="hero" class="animate-section">
-  <video id="hero-video" autoplay muted loop>
-    <source src="video/guardpilot.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-  <div class="content">
-    <h2>Your Autonomous Security Partner</h2>
-    <p>AI-powered drones that patrol, alert, and protect — all controlled via your smartphone.</p>
-    <a href="#contact">Get a Demo</a>
-  </div>
+  <video id="hero-video" autoplay muted loop><source src="video/guardpilot.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+  <div class="content"><h2>Your Autonomous Security Partner</h2><p>AI-powered drones that patrol, alert, and protect — all controlled via your smartphone.</p><a href="#contact">Get a Demo</a></div>
 </section>
-
+<section id="why-us" class="animate-section why-us">
+  <div class="feature"><img src="images/Autonomous.png" alt="Autonomous Icon"><h3>Autonomous</h3><p>Fully AI-powered autonomous patrol and response.</p></div>
+  <div class="feature"><img src="images/Mobile_Control.png" alt="Mobile Control Icon"><h3>Mobile Control</h3><p>Instant manual override and real-time control via app.</p></div>
+  <div class="feature"><img src="images/Easy_Integration.png" alt="Easy Integration Icon"><h3>Easy Integration</h3><p>Seamlessly integrates with your existing security systems.</p></div>
+  <div class="feature"><img src="images/Instant_Alerts.png" alt="Instant Alerts Icon"><h3>Instant Alerts</h3><p>Real-time threat detection and immediate notifications.</p></div>
+</section>
+<section id="product-video" class="animate-section product-video">
+  <h2>Product Overview</h2><video controls><source src="video/product-overview.mp4" type="video/mp4">Your browser does not support the video tag.</video>
+</section>
+<section id="contact" class="animate-section">
+  <h2>Contact Us</h2><form class="contact-form" action="https://formspree.io/f/mwkgevlv" method="POST" target="_blank">
+    <input type="text" name="name" placeholder="Your Name" required><br><input type="email" name="email" placeholder="Your Email" required><br><textarea name="message" rows="4" placeholder="Your Message" required></textarea><br><label><input type="checkbox" required> I agree to the data processing policy.</label><br><br><button type="submit">Send Message</button></form>
+  <p>Telegram: <a href="https://t.me/JV_Guard" target="_blank">@JV_Guard</a></p><p>Email: <a href="mailto:pandamladshay@gmail.com">pandamladshay@gmail.com</a></p>
+</section>
 <button class="scroll-top" onclick="scrollToTop()">↑</button>
-
-<footer>
-  <div class="socials">
-    <a href="https://t.me/JV_Guard" target="_blank">Telegram</a>
-  </div>
-  <p>© 2025 GuardPilot. All rights reserved.</p>
-</footer>
-
+<footer><div class="socials"><a href="https://t.me/JV_Guard" target="_blank">Telegram</a></div><p>© 2025 GuardPilot. All rights reserved.</p></footer>
 <script>
-  window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    preloader.classList.add('hide');
-  });
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.animate-section').forEach(section => {
-    observer.observe(section);
-  });
-
+  window.addEventListener('load', () => {document.getElementById('preloader').classList.add('hide');});
+  function toggleMenu() {const menu = document.getElementById('menuDropdown');menu.style.display = menu.style.display === 'block' ? 'none' : 'block';}
+  const observer = new IntersectionObserver(entries => {entries.forEach(entry => {if (entry.isIntersecting) {entry.target.classList.add('visible');}});}, { threshold: 0.1 });
+  document.querySelectorAll('.animate-section').forEach(section => {observer.observe(section);});
   window.addEventListener('scroll', () => {
     const video = document.getElementById('hero-video');
     let offset = window.scrollY * 0.3;
     video.style.transform = `translateY(${offset}px)`;
-
     const scrollButton = document.querySelector('.scroll-top');
-    if (window.scrollY > 300) {
-      scrollButton.classList.add('show');
-    } else {
-      scrollButton.classList.remove('show');
-    }
+    if (window.scrollY > 300) {scrollButton.classList.add('show');} else {scrollButton.classList.remove('show');}
   });
-
-  function toggleMenu() {
-    const menu = document.getElementById('menuDropdown');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
-
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  function scrollToTop() {window.scrollTo({ top: 0, behavior: 'smooth' });}
 </script>
-
 </body>
 </html>
