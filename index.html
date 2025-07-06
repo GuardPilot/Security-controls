@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,7 +14,6 @@
       margin: 0;
       padding: 0;
     }
-
     body {
       max-width: 1400px;
       margin: 0 auto;
@@ -23,60 +21,22 @@
       position: relative;
     }
 
-    /* Preloader */
-    #preloader {
-      position: fixed;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 2000;
-      background-color: #0f2027;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
-    }
-
-    #preloader.hide {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    .loader img {
-      width: 80px;
-      height: 80px;
-      animation: spin 1.5s linear infinite;
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-
     header {
       position: fixed;
       top: 0;
       width: 100%;
       max-width: 1400px;
-      background: rgba(0, 0, 0, 0.0);
+      background: rgba(0, 0, 0, 0);
       padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
     }
-
     header .logo {
       display: flex;
       align-items: center;
     }
-
     header .logo img {
       height: 60px;
       margin-right: 15px;
@@ -92,41 +52,22 @@
       cursor: pointer;
       text-align: center;
     }
-
     .menu-button img {
       width: 60px;
       display: block;
       margin: 0 auto;
       animation: pulse 2s infinite;
     }
-
     .menu-button span {
       display: block;
       color: orange;
       font-size: 18px;
       font-weight: bold;
     }
-
     @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.1);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    .menu-button:active,
-    .scroll-top:active,
-    .contact-form button:active,
-    #hero .content a:active {
-      transform: scale(0.95);
-      transition: transform 0.1s ease;
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
     }
 
     .dropdown {
@@ -134,12 +75,11 @@
       position: fixed;
       top: 90px;
       right: 20px;
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: rgba(0,0,0,0.9);
       border-radius: 10px;
       padding: 15px;
       box-shadow: 0 0 10px rgba(0, 207, 193, 0.5);
     }
-
     .dropdown a {
       display: block;
       color: white;
@@ -147,7 +87,6 @@
       padding: 10px 0;
       font-weight: bold;
     }
-
     .dropdown a:hover {
       color: #ff7a00;
     }
@@ -160,7 +99,6 @@
       border-radius: 15px;
       box-shadow: 0 0 20px rgba(0, 207, 193, 0.3);
     }
-
     #hero video {
       width: 100%;
       height: auto;
@@ -168,7 +106,6 @@
       transform: translateY(0);
       transition: transform 0.1s ease-out;
     }
-
     #hero .content {
       position: absolute;
       top: 50%;
@@ -179,12 +116,10 @@
       padding: 30px;
       border-radius: 15px;
     }
-
     #hero .content h2 {
       font-size: 2.5rem;
       margin-bottom: 20px;
     }
-
     #hero .content a {
       display: inline-block;
       padding: 15px 30px;
@@ -196,7 +131,6 @@
       transition: background-color 0.3s, transform 0.3s;
       animation: pulse 2s infinite;
     }
-
     #hero .content a:hover {
       background-color: #e96b00;
       transform: scale(1.05);
@@ -212,24 +146,19 @@
       transform: translateY(50px);
       transition: opacity 1s ease, transform 1s ease;
     }
-
     section.visible {
       opacity: 1;
       transform: translateY(0);
     }
-
-    h2,
-    h3 {
+    h2, h3 {
       color: #00cfc1;
       margin-bottom: 20px;
     }
-
     .why-us {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
     }
-
     .why-us .feature {
       flex: 1 1 250px;
       margin: 10px;
@@ -240,12 +169,10 @@
       box-shadow: 0 0 15px rgba(0, 207, 193, 0.5);
       transition: transform 0.3s, box-shadow 0.3s;
     }
-
     .why-us .feature:hover {
       transform: translateY(-10px) rotate(2deg);
       box-shadow: 0 0 25px rgba(0, 207, 193, 0.7);
     }
-
     .why-us .feature img {
       width: 80px;
       height: 80px;
@@ -253,19 +180,10 @@
       border-radius: 10px;
       animation: float 4s ease-in-out infinite;
     }
-
     @keyframes float {
-      0% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-10px) rotate(5deg);
-      }
-
-      100% {
-        transform: translateY(0);
-      }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px) rotate(5deg); }
+      100% { transform: translateY(0); }
     }
 
     .product-video video {
@@ -274,15 +192,13 @@
       margin-top: 20px;
     }
 
-    .contact-form input,
-    .contact-form textarea {
+    .contact-form input, .contact-form textarea {
       width: 100%;
       margin-bottom: 15px;
       padding: 15px;
       border: none;
       border-radius: 8px;
     }
-
     .contact-form button {
       background-color: #00cfc1;
       color: white;
@@ -292,7 +208,6 @@
       cursor: pointer;
       transition: background-color 0.3s, transform 0.2s;
     }
-
     .contact-form button:hover {
       background-color: #00a99d;
       transform: scale(1.05);
@@ -313,7 +228,6 @@
       display: none;
       box-shadow: 0 0 10px rgba(0, 207, 193, 0.5);
     }
-
     .scroll-top.show {
       display: block;
     }
@@ -324,49 +238,10 @@
       font-size: 0.9rem;
       color: #888;
     }
-
-    @media (max-width: 768px) {
-      .why-us {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      header .logo h1 {
-        font-size: 1.2rem;
-      }
-
-      .menu-button img {
-        width: 50px;
-      }
-
-      .menu-button span {
-        font-size: 16px;
-      }
-
-      #hero .content h2 {
-        font-size: 1.8rem;
-      }
-
-      .why-us .feature {
-        flex: 1 1 100%;
-        margin: 10px 0;
-      }
-
-      section {
-        margin: 60px 0;
-        padding: 20px;
-      }
-    }
   </style>
 </head>
 
 <body>
-
-<div id="preloader">
-  <div class="loader">
-    <img src="images/logo.png" alt="Loading...">
-  </div>
-</div>
 
 <header>
   <div class="logo">
@@ -453,10 +328,10 @@
 </footer>
 
 <script>
-  window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    preloader.classList.add('hide');
-  });
+  function toggleMenu() {
+    const menu = document.getElementById('menuDropdown');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+  }
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -482,11 +357,6 @@
       scrollButton.classList.remove('show');
     }
   });
-
-  function toggleMenu() {
-    const menu = document.getElementById('menuDropdown');
-    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-  }
 
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
